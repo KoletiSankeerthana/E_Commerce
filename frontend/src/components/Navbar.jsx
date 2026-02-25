@@ -123,7 +123,7 @@ const Navbar = () => {
             <div className="container nav-content">
                 {/* 1. Logo Section */}
                 <Link to="/" className="lux-logo">
-                    <img src="/logo.png" alt="Logo" className="logo" />
+                    <img src="/images/logo.png" alt="Logo" className="logo" />
                     <span className="logo-text">STYLE STORE</span>
                 </Link>
 
