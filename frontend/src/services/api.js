@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/api',
+    baseURL: "https://ecommerce-vwsy.onrender.com/api"
 });
 
 export const IMAGE_BASE_URL = "https://ecommerce-vwsy.onrender.com";
