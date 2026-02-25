@@ -2,9 +2,6 @@ const asyncHandler = require('express-async-handler');
 const Product = require('../models/Product');
 
 
-// @desc Fetch all products
-// @route GET /api/products
-// @access Public
 const getProducts = asyncHandler(async (req, res) => {
     const { category, brand, minPrice, maxPrice, page, limit } = req.query;
 
@@ -55,9 +52,6 @@ const getProducts = asyncHandler(async (req, res) => {
 
 const normalize = (text) => text.toLowerCase().replace(/[-\s]/g, '');
 
-// @desc Search products
-// @route GET /api/products/search
-// @access Public
 const searchProducts = asyncHandler(async (req, res) => {
     const keyword = req.query.q || '';
     const normalizedKeyword = normalize(keyword);
@@ -80,9 +74,6 @@ const searchProducts = asyncHandler(async (req, res) => {
 });
 
 
-// @desc Fetch single product
-// @route GET /api/products/:id
-// @access Public
 const getProductById = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
@@ -95,9 +86,6 @@ const getProductById = asyncHandler(async (req, res) => {
 });
 
 
-// @desc Create product
-// @route POST /api/products
-// @access Public
 const createProduct = asyncHandler(async (req, res) => {
     const {
         name,
@@ -124,9 +112,6 @@ const createProduct = asyncHandler(async (req, res) => {
     res.status(201).json(createdProduct);
 });
 
-// @desc    Create new review
-// @route   POST /api/products/:id/reviews
-// @access  Private
 const createProductReview = asyncHandler(async (req, res) => {
     const { rating, comment } = req.body;
     const product = await Product.findById(req.params.id);
@@ -162,9 +147,7 @@ const createProductReview = asyncHandler(async (req, res) => {
     }
 });
 
-// @desc    Delete review
-// @route   DELETE /api/products/:id/reviews
-// @access  Private
+
 const deleteProductReview = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
@@ -197,9 +180,7 @@ const deleteProductReview = asyncHandler(async (req, res) => {
     }
 });
 
-// @desc    Update review
-// @route   PUT /api/products/:id/reviews
-// @access  Private
+
 const updateProductReview = asyncHandler(async (req, res) => {
     const { rating, comment } = req.body;
     const product = await Product.findById(req.params.id);
@@ -229,9 +210,6 @@ const updateProductReview = asyncHandler(async (req, res) => {
     }
 });
 
-// @desc    Get related products
-// @route   GET /api/products/:id/related
-// @access  Public
 const getRelatedProducts = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (product) {
@@ -247,7 +225,6 @@ const getRelatedProducts = asyncHandler(async (req, res) => {
 });
 
 
-// Export ONLY ONCE and ONLY AT BOTTOM
 module.exports = {
     getProducts,
     getProductById,

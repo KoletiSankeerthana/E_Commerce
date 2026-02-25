@@ -18,7 +18,7 @@ const AdminOrders = () => {
         const fetchOrders = async () => {
             try {
                 // Using admin endpoint to fetch all orders
-                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/admin/orders');
+                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/orders');
                 setOrders(data);
                 setLoading(false);
             } catch (error) {
