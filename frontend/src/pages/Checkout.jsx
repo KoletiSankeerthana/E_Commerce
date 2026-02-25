@@ -136,7 +136,11 @@ const Checkout = () => {
     };
 
     // --- Totals Calculation ---
-    const subTotal = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+    console.log("CartItems value:", cartItems);
+    console.log("Is cartItems an array:", Array.isArray(cartItems));
+    const subTotal = Array.isArray(cartItems)
+        ? cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0)
+        : 0;
     const discountAmount = subTotal * discount;
 
     // Fee Logic

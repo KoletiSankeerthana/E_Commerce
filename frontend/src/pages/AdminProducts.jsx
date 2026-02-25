@@ -70,7 +70,7 @@ const AdminProducts = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map(product => (
+                        {Array.isArray(products) && products.map(product => (
                             <tr key={product._id} style={{ borderBottom: '1px solid #eee' }}>
                                 <td style={{ padding: '10px' }}>
                                     <img src={product.image} alt={product.name} style={{ width: '50px', height: '50px', objectFit: 'cover' }} />

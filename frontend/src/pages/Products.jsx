@@ -61,7 +61,7 @@ const Products = () => {
                 </h1>
 
                 <div className="product-grid">
-                    {displayedProducts.map((product) => (
+                    {Array.isArray(displayedProducts) && displayedProducts.map((product) => (
                         <ProductCard key={product._id} product={product} />
                     ))}
                 </div>

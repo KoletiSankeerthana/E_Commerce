@@ -90,8 +90,11 @@ const Cart = () => {
     const handlePlaceOrder = () => {
         navigate('/checkout');
     };
-
-    const subTotal = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+    console.log("CartItems value:", cartItems);
+    console.log("Is cartItems an array:", Array.isArray(cartItems));
+    const subTotal = Array.isArray(cartItems)
+        ? cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0)
+        : 0;
     const CONVENIENCE_FEE = 15;
     const SHIPPING_FEE = subTotal < 1000 ? 100 : 0;
     const totalPrice = subTotal + CONVENIENCE_FEE + SHIPPING_FEE;

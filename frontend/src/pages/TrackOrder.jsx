@@ -77,8 +77,12 @@ const TrackOrder = () => {
         try {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
             const config = userInfo ? { headers: { Authorization: `Bearer ${userInfo.token}` } } : {};
+            const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/admin/orders');
 
-            const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/orders/${idToTrack}`, config);
+            console.log("ORDERS API RESPONSE:", data);
+            console.log("IS ARRAY:", Array.isArray(data));
+
+            setOrders(data); const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/orders/${idToTrack}`, config);
             setOrder(data);
 
         } catch (err) {

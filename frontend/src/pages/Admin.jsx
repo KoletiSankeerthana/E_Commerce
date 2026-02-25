@@ -95,7 +95,7 @@ const Admin = () => {
                 <div style={{ padding: '20px', border: '1px solid #eaeaec', borderRadius: '8px', backgroundColor: '#fff' }}>
                     <h3 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Products ({products.length})</h3>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
-                        {products.map(product => (
+                        {Array.isArray(products) && products.map(product => (
                             <div key={product._id} style={{ border: '1px solid #eee', borderRadius: '4px', overflow: 'hidden' }}>
                                 <img src={product.image} alt={product.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                                 <div style={{ padding: '10px' }}>
