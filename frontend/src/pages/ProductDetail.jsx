@@ -65,7 +65,7 @@ const ProductDetail = () => {
         try {
             setAdding(true);
 
-            await axios.post("http://localhost:5000/api/cart/add", {
+            await axios.post("https://ecommerce-vwsy.onrender.com/api/cart/add", {
                 productId: product._id,
                 size: selectedSize || 'One Size',
                 quantity: 1,
@@ -93,7 +93,7 @@ const ProductDetail = () => {
                 return;
             }
 
-            await axios.post("http://localhost:5000/api/wishlist/add", {
+            await axios.post("https://ecommerce-vwsy.onrender.com/api/wishlist/add", {
                 userId: userInfo._id,
                 productId: product._id
             });

@@ -20,7 +20,7 @@ const Wishlist = () => {
             }
 
             const response = await axios.get(
-                `http://localhost:5000/api/wishlist?userId=${userInfo._id}`
+                `https://ecommerce-vwsy.onrender.com/api/wishlist?userId=${userInfo._id}`
             );
 
             setWishlistItems(response.data);
@@ -38,7 +38,7 @@ const Wishlist = () => {
     const handleRemoveWishlist = async (productId) => {
         try {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-            await axios.delete("http://localhost:5000/api/wishlist/remove", {
+            await axios.delete("https://ecommerce-vwsy.onrender.com/api/wishlist/remove", {
                 data: {
                     userId: userInfo._id,
                     productId

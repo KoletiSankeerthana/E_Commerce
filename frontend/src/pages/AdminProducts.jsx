@@ -17,7 +17,7 @@ const AdminProducts = () => {
 
         const fetchProducts = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/products');
+                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/products');
                 setProducts(data);
                 setLoading(false);
             } catch (error) {
@@ -32,18 +32,8 @@ const AdminProducts = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/products/${id}`); // Note: Using direct product delete if available, or admin route
-                // The requirements asked to call DELETE /api/products/:id. 
-                // If that endpoint is protected or needs admin check, it should be fine if user is admin.
-                // However, previous admin logic used /api/admin/products/:id. I will stick to requirement "DELETE /api/products/:id" 
-                // BUT if that route doesn't exist or isn't admin protected properly, I might need to use the one I created in adminRoutes.
-                // The requirement explicitly said "Call DELETE /api/products/:id". 
-                // Let me double check if I have that route. 
-                // productRoutes.js DOES NOT have delete. adminRoutes.js DOES.
-                // So I MUST use /api/admin/products/:id to work with my backend.
-                // I will use /api/admin/products/:id to ensure it works.
-
-                await axios.delete(`http://localhost:5000/api/admin/products/${id}`);
+                await axios.delete(`https://ecommerce-vwsy.onrender.com/api/products/${id}`);
+                await axios.delete(`https://ecommerce-vwsy.onrender.com/api/admin/products/${id}`);
                 setProducts(products.filter(product => product._id !== id));
             } catch (error) {
                 alert('Delete failed');

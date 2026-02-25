@@ -11,7 +11,7 @@ export default defineConfig({
     allowedHosts: true,  // THIS is critical (boolean true, not 'all')
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://ecommerce-vwsy.onrender.com',
         changeOrigin: true,
         secure: false
       }

@@ -18,7 +18,7 @@ const AdminOrders = () => {
         const fetchOrders = async () => {
             try {
                 // Using admin endpoint to fetch all orders
-                const { data } = await axios.get('http://localhost:5000/api/admin/orders');
+                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/admin/orders');
                 setOrders(data);
                 setLoading(false);
             } catch (error) {
@@ -33,7 +33,7 @@ const AdminOrders = () => {
     const handleStatusChange = async (id, status) => {
         try {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-            await axios.put(`http://localhost:5000/api/orders/${id}/status`, { status }, {
+            await axios.put(`https://ecommerce-vwsy.onrender.com/api/orders/${id}/status`, { status }, {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             });
             setOrders(orders.map(order => order._id === id ? { ...order, orderStatus: status } : order));
@@ -49,7 +49,7 @@ const AdminOrders = () => {
             const status = action === 'Approve' ? 'Approved' : 'Rejected';
             // We use the same status update endpoint, passing returnStatus in body
             // Note: Our backend updateOrderStatus checks for returnStatus in body
-            await axios.put(`http://localhost:5000/api/orders/${id}/status`, {
+            await axios.put(`https://ecommerce-vwsy.onrender.com/api/orders/${id}/status`, {
                 status: action === 'Approve' ? 'Returned' : 'Delivered', // Update main status too? Or keep Delivered? 
                 // Let's keep main status as Delivered/Returned and sync returnStatus.
                 // Actually, if we look at backend, it expects `status` (orderStatus) and optionally `returnStatus`.

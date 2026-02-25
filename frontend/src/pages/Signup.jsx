@@ -13,7 +13,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5000/api/users/register', {
+            const { data } = await axios.post('https://ecommerce-vwsy.onrender.com/api/users/register', {
                 name,
                 email,
                 password,

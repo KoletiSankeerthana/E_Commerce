@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-// Always use relative /api path — Vite proxy forwards to localhost:5000
-// This works on localhost AND on mobile via Cloudflare tunnel (port 5173)
 const api = axios.create({
     baseURL: '/api',
 });
 
-export const IMAGE_BASE_URL = "http://localhost:5173";
+export const IMAGE_BASE_URL = "https://ecommerce-vwsy.onrender.com";
 
 export const getImageUrl = (imagePath) => {
     if (!imagePath) return "";

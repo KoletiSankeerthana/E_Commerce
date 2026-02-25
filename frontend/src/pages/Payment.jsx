@@ -64,7 +64,7 @@ const Payment = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                "http://localhost:5000/api/orders/place",
+                "https://ecommerce-vwsy.onrender.com/api/orders/place",
                 {
                     userId: userInfo._id,
                     address: {
@@ -82,9 +82,7 @@ const Payment = () => {
                 }
             );
 
-            // alert("Payment successful, order placed");
-            // alert("Payment successful, order placed");
-            // Navigate to dynamic order details route
+
             const orderId = response.data._id || (response.data.order && response.data.order._id);
             if (orderId) {
                 navigate(`/track-order?orderId=${orderId}`);

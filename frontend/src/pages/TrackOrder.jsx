@@ -44,7 +44,7 @@ const TrackOrder = () => {
         await Promise.all(order.orderItems.map(async (item) => {
             if (!item.product?._id) return;
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/products/${item.product._id}`);
+                const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/products/${item.product._id}`);
                 const product = data;
                 const userReview = product.reviews?.find(r => r.user === userInfo._id || r.user?._id === userInfo._id);
 
@@ -78,7 +78,7 @@ const TrackOrder = () => {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
             const config = userInfo ? { headers: { Authorization: `Bearer ${userInfo.token}` } } : {};
 
-            const { data } = await axios.get(`http://localhost:5000/api/orders/${idToTrack}`, config);
+            const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/orders/${idToTrack}`, config);
             setOrder(data);
 
         } catch (err) {
@@ -122,7 +122,7 @@ const TrackOrder = () => {
 
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         try {
-            await axios.delete(`http://localhost:5000/api/products/${productId}/reviews`, {
+            await axios.delete(`https://ecommerce-vwsy.onrender.com/api/products/${productId}/reviews`, {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             });
 
@@ -141,7 +141,7 @@ const TrackOrder = () => {
 
         try {
             if (isEditingMetadata) {
-                await axios.put(`http://localhost:5000/api/products/${selectedProduct._id}/reviews`, {
+                await axios.put(`https://ecommerce-vwsy.onrender.com/api/products/${selectedProduct._id}/reviews`, {
                     rating,
                     comment
                 }, {
@@ -149,7 +149,7 @@ const TrackOrder = () => {
                 });
                 alert('Review updated successfully!');
             } else {
-                await axios.post(`http://localhost:5000/api/products/${selectedProduct._id}/reviews`, {
+                await axios.post(`https://ecommerce-vwsy.onrender.com/api/products/${selectedProduct._id}/reviews`, {
                     rating,
                     comment
                 }, {
@@ -170,7 +170,7 @@ const TrackOrder = () => {
     const handleUpdateStatus = async (newStatus) => {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         try {
-            await axios.put(`http://localhost:5000/api/orders/${order._id}/status`, {
+            await axios.put(`https://ecommerce-vwsy.onrender.com/api/orders/${order._id}/status`, {
                 status: newStatus
             }, {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
