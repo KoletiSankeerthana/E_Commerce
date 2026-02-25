@@ -22,13 +22,16 @@ const AdminOrders = () => {
                 console.log("ORDERS API RESPONSE:", data);
                 console.log("IS ARRAY:", Array.isArray(data));
 
-                setOrders(data);
+                setOrders(Array.isArray(data) ? data : []);
                 setLoading(false);
+
             } catch (error) {
                 console.error("Error fetching orders:", error);
+                setOrders([]);   // also add this line
                 setLoading(false);
             }
         };
+
 
         fetchOrders();
     }, [userInfo, navigate]);
@@ -86,7 +89,7 @@ const AdminOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map(order => (
+                        {Array.isArray(orders) && orders.map(order => (
                             <tr key={order._id} style={{ borderBottom: '1px solid #eee' }}>
                                 <td style={{ padding: '10px' }}>{order.orderId || order._id}</td>
                                 <td style={{ padding: '10px' }}>{order.user?.email || 'N/A'}</td>

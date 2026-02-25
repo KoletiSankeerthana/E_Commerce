@@ -67,7 +67,7 @@ const Admin = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {orders.map(order => (
+                                {Array.isArray(orders) && orders.map(order => (
                                     <tr key={order._id} style={{ borderBottom: '1px solid #eee' }}>
                                         <td style={{ padding: '10px' }}>{order.orderId || order._id}</td>
                                         <td style={{ padding: '10px' }}>{order.user?.name}</td>
