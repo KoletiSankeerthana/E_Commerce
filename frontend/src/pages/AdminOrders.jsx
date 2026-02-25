@@ -17,7 +17,7 @@ const AdminOrders = () => {
 
         const fetchOrders = async () => {
             try {
-                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/admin/orders');
+                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/orders');
 
                 console.log("ORDERS API RESPONSE:", data);
                 console.log("IS ARRAY:", Array.isArray(data));

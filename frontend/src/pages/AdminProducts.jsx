@@ -18,8 +18,10 @@ const AdminProducts = () => {
         const fetchProducts = async () => {
             try {
                 const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/products');
-                setProducts(data);
-                setLoading(false);
+                const safeProducts = Array.isArray(data) ? data : [];
+
+                setProducts(safeProducts);
+                setDisplayedProducts(safeProducts);
             } catch (error) {
                 console.error("Error fetching products:", error);
                 setLoading(false);
@@ -70,32 +72,31 @@ const AdminProducts = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Array.isArray(products) && products.map(product => (
-                            <tr key={product._id} style={{ borderBottom: '1px solid #eee' }}>
-                                <td style={{ padding: '10px' }}>
-                                    <img src={product.image} alt={product.name} style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
-                                </td>
-                                <td style={{ padding: '10px' }}>{product.name}</td>
-                                <td style={{ padding: '10px' }}>{product.brand}</td>
-                                <td style={{ padding: '10px' }}>{product.category}</td>
-                                <td style={{ padding: '10px' }}>₹{product.price}</td>
-                                <td style={{ padding: '10px' }}>{product.countInStock}</td>
-                                <td style={{ padding: '10px' }}>
-                                    <button
-                                        style={{ marginRight: '10px', padding: '5px 10px', cursor: 'pointer', border: '1px solid #ddd', borderRadius: '4px' }}
-                                        onClick={() => alert("Edit functionality not implemented in requirements")}
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        style={{ padding: '5px 10px', cursor: 'pointer', backgroundColor: '#ff3f6c', color: 'white', border: 'none', borderRadius: '4px' }}
-                                        onClick={() => handleDelete(product._id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+
+                        <tr key={product._id} style={{ borderBottom: '1px solid #eee' }}>
+                            <td style={{ padding: '10px' }}>
+                                <img src={product.image} alt={product.name} style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
+                            </td>
+                            <td style={{ padding: '10px' }}>{product.name}</td>
+                            <td style={{ padding: '10px' }}>{product.brand}</td>
+                            <td style={{ padding: '10px' }}>{product.category}</td>
+                            <td style={{ padding: '10px' }}>₹{product.price}</td>
+                            <td style={{ padding: '10px' }}>{product.countInStock}</td>
+                            <td style={{ padding: '10px' }}>
+                                <button
+                                    style={{ marginRight: '10px', padding: '5px 10px', cursor: 'pointer', border: '1px solid #ddd', borderRadius: '4px' }}
+                                    onClick={() => alert("Edit functionality not implemented in requirements")}
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    style={{ padding: '5px 10px', cursor: 'pointer', backgroundColor: '#ff3f6c', color: 'white', border: 'none', borderRadius: '4px' }}
+                                    onClick={() => handleDelete(product._id)}
+                                >
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

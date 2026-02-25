@@ -45,9 +45,13 @@ const TrackOrder = () => {
             if (!item.product?._id) return;
             try {
                 const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/products/${item.product._id}`);
-                const product = data;
-                const userReview = product.reviews?.find(r => r.user === userInfo._id || r.user?._id === userInfo._id);
+                const product = data || {};
 
+                const reviews = Array.isArray(product.reviews) ? product.reviews : [];
+
+                const userReview = reviews.find(
+                    r => r.user === userInfo._id || r.user?._id === userInfo._id
+                );
                 if (userReview) {
                     reviewsMap[item.product._id] = userReview;
                 }
@@ -77,12 +81,8 @@ const TrackOrder = () => {
         try {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
             const config = userInfo ? { headers: { Authorization: `Bearer ${userInfo.token}` } } : {};
-            const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/admin/orders');
 
-            console.log("ORDERS API RESPONSE:", data);
-            console.log("IS ARRAY:", Array.isArray(data));
-
-            setOrders(data); const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/orders/${idToTrack}`, config);
+            const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/orders/${idToTrack}`, config);
             setOrder(data);
 
         } catch (err) {
