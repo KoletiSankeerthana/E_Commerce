@@ -87,7 +87,11 @@ const Home = () => {
                     params.append('limit', 12);
 
                     const queryString = params.toString();
-                    const { data } = await api.get(`/products?${queryString}`);
+
+                    const { data } = await api.get(`/api/products?${queryString}`);
+
+                    console.log("API returned:", data);
+
                     if (Array.isArray(data?.products)) {
                         setProducts(data.products);
                         setTotalPages(data.pages || 1);
@@ -99,7 +103,7 @@ const Home = () => {
                         setPage(1);
                     }
                     else {
-                        setProducts([]);  // CRITICAL FIX
+                        setProducts([]);
                         setTotalPages(1);
                         setPage(1);
                     }
