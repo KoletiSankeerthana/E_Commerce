@@ -80,7 +80,7 @@ const Home = () => {
                         filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
                     }
 
-                    setProducts(filtered);
+                    setProducts(Array.isArray(filtered) ? filtered : []);
                     setTotalPages(1);
                 } else {
                     params.append('page', page);
@@ -88,12 +88,20 @@ const Home = () => {
 
                     const queryString = params.toString();
                     const { data } = await api.get(`/products?${queryString}`);
-                    if (data.products) {
+                    if (Array.isArray(data?.products)) {
                         setProducts(data.products);
-                        setTotalPages(data.pages);
-                        setPage(data.page);
-                    } else {
+                        setTotalPages(data.pages || 1);
+                        setPage(data.page || 1);
+                    }
+                    else if (Array.isArray(data)) {
                         setProducts(data);
+                        setTotalPages(1);
+                        setPage(1);
+                    }
+                    else {
+                        setProducts([]);  // CRITICAL FIX
+                        setTotalPages(1);
+                        setPage(1);
                     }
                 }
                 setLoading(false);
