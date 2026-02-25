@@ -53,7 +53,7 @@ const Footer = () => {
             {/* Bottom Section */}
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src="/src/assets/logo.png" alt="StyleStore Logo" style={{ height: '50px', width: '50px', objectFit: 'contain' }} />
+                    <img src="/src/logo.png" alt="StyleStore Logo" style={{ height: '50px', width: '50px', objectFit: 'contain' }} />
                     <span style={{
                         fontSize: '1.2rem',
                         fontFamily: "'Playfair Display', serif",
@@ -63,7 +63,7 @@ const Footer = () => {
                         textTransform: 'uppercase'
                     }}>STYLE STORE</span>
                 </Link>
-                <p style={{ marginTop: '5px', color: '#666', fontSize: '0.65rem' }}>&copy; 2026 Style Store. All rights reserved.</p>
+                <p style={{ marginTop: '5px', color: '#666', fontSize: '0.65rem', marginLeft: '-10px' }}>&copy; 2026 Style Store. All rights reserved.</p>
             </div>
         </footer>
     );
