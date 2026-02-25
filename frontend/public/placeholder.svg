@@ -1,0 +1,6 @@
+<svg width="400" height="500" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#F8F8F8"/>
+  <path d="M200 230C211.046 230 220 221.046 220 210C220 198.954 211.046 190 200 190C188.954 190 180 198.954 180 210C180 221.046 188.954 230 200 230Z" stroke="#CCCCCC" stroke-width="2"/>
+  <path d="M150 310C150 282.386 172.386 260 200 260C227.614 260 250 282.386 250 310" stroke="#CCCCCC" stroke-width="2"/>
+  <text x="50%" y="350" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="#999999">Product Image Coming Soon</text>
+</svg>

@@ -1,0 +1,330 @@
+/* 
+   -------------------------------------------------------
+   Professional Product Detail Page Layout - Amazon/Myntra Style
+   -------------------------------------------------------
+*/
+
+/* 1. Main Container - Aggressive Width & Centering */
+.pd-container {
+    width: 95% !important;
+    max-width: 90.625rem !important;
+    /* Forces wider layout */
+    margin: 1.25rem auto !important;
+    padding: 0 0.625rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    /* Strict 50/50 */
+    gap: 3.125rem !important;
+    align-items: start !important;
+    min-height: 85vh !important;
+}
+
+/* 2. Left Column: Product Image (Natural Fit) */
+/* 2. Left Column: Product Image (Full Visible & Centered) */
+/* 2. Left Column: Product Image (Maximized & Full Visible) */
+/* 2. Left Column Wrapper */
+.pd-left-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+    /* Space between Image and Reviews */
+}
+
+/* 2. Left Column: Product Image (Maximized & Full Visible) */
+.pd-image-section {
+    position: relative !important;
+    align-self: start !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: 25rem !important;
+    /* Reduced from 37.5rem */
+    aspect-ratio: auto !important;
+    background-color: #fafafa !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+.pd-image-section img {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+    max-height: 70vh !important;
+    /* Reduced from 95vh to fit viewport */
+
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* 3. Right Column: Product Info (Top Aligned) */
+.pd-info-section {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+    padding: 0 !important;
+    padding-left: 1.25rem !important;
+    margin: 0 !important;
+}
+
+/* BRAND NAME */
+.pd-brand {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #ff3e6c !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.075rem !important;
+    margin-bottom: 0.125rem !important;
+    margin-top: 0 !important;
+    /* Ensure no extra margin */
+    line-height: 1 !important;
+}
+
+/* PRODUCT TITLE */
+.pd-title {
+    font-size: 1.8rem !important;
+    font-weight: 400 !important;
+    color: #1a1a2e !important;
+    margin-bottom: 2px !important;
+    /* Minimum viable */
+    line-height: 1.2 !important;
+    font-family: var(--font-display, serif) !important;
+}
+
+/* PRICE BLOCK */
+.pd-price-block {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    /* Reduced to 0.5rem */
+    padding-bottom: 0.3125rem !important;
+    /* Reduced to 0.3125rem */
+    border-bottom: 0.0625rem solid #eee !important;
+}
+
+.pd-price {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: #282c3f !important;
+}
+
+.pd-original-price {
+    font-size: 1.2rem !important;
+    text-decoration: line-through !important;
+    color: #94969f !important;
+}
+
+.pd-discount {
+    font-size: 1.2rem !important;
+    color: #ff905a !important;
+    font-weight: 700 !important;
+}
+
+/* SIZE SELECTOR */
+.pd-size-container {
+    margin-bottom: 0.5rem !important;
+    /* Reduced to 0.5rem */
+}
+
+.pd-size-title {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.3125rem !important;
+    /* Reduced from 0.625rem */
+    text-transform: uppercase !important;
+    color: #282c3f !important;
+}
+
+.pd-sizes-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    /* Tighter gap */
+}
+
+.pd-size-btn {
+    min-width: 3.125rem !important;
+    height: 2.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 0.0625rem solid #d4d5d9 !important;
+    background: white !important;
+    color: #282c3f !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    border-radius: 2.5rem !important;
+    /* Rounded pill */
+    padding: 0 0.9375rem !important;
+}
+
+.pd-size-btn:hover {
+    border-color: #282c3f !important;
+}
+
+.pd-size-btn.selected {
+    border-color: #282c3f !important;
+    color: #fff !important;
+    background-color: #282c3f !important;
+    /* Black background */
+    box-shadow: none !important;
+}
+
+/* ACTION BUTTONS */
+.pd-actions {
+    display: flex !important;
+    gap: 0.5rem !important;
+    /* Reduced gap */
+    margin-bottom: 0.375rem !important;
+    /* Reduced to 0.375rem */
+}
+
+/* Common style for equal sizing */
+.pd-add-bag-btn,
+.pd-wishlist-btn {
+    flex: 1 !important;
+    width: 50% !important;
+    padding: 0.625rem 0 !important;
+    /* Slightly reduced padding */
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    border-radius: 0.25rem !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 2.75rem !important;
+    /* Reduced height from 3rem */
+}
+
+.pd-add-bag-btn {
+    background-color: #ff3e6c !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.pd-wishlist-btn {
+    background-color: #fff !important;
+    color: #282c3f !important;
+    border: 1px solid #d4d5d9 !important;
+}
+
+/* DETAILS & REVIEWS */
+.pd-details-section,
+.pd-reviews-section,
+.pd-write-review-section {
+    margin-bottom: 0.3125rem !important;
+    /* Reduced to 0.3125rem */
+    padding: 0.3125rem 0 !important;
+    /* Reduced to 0.3125rem */
+}
+
+.pd-details-title,
+.pd-reviews-title,
+.pd-write-review-title {
+    font-size: 1rem !important;
+    /* Reduced from 1.2rem */
+    font-weight: 800 !important;
+    margin-bottom: 0.5rem !important;
+    text-transform: uppercase !important;
+    color: #282c3f !important;
+}
+
+/* Explicit text styling for details */
+.pd-details-text {
+    font-size: 0.95rem !important;
+    /* Reduced from 1rem */
+    line-height: 1.5 !important;
+    color: #4a4a4a !important;
+    margin-bottom: 0.3125rem !important;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+    .pd-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+    }
+
+    .pd-image-section {
+        min-height: 21.875rem !important;
+    }
+}
+
+/* Mobile (< 480px) */
+@media (max-width: 479px) {
+    .pd-container {
+        padding: 0 0.9375rem !important;
+        gap: 0.9375rem !important;
+    }
+
+    .pd-title {
+        font-size: 1.5rem !important;
+    }
+
+    .pd-price {
+        font-size: 1.5rem !important;
+    }
+
+    .pd-image-section {
+        min-height: 15.625rem !important;
+    }
+
+    .pd-image-section img {
+        max-height: 50vh !important;
+    }
+
+    .pd-actions {
+        flex-direction: row !important;
+    }
+
+    .pd-add-bag-btn,
+    .pd-wishlist-btn {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 0 !important;
+        height: 2.5rem !important;
+    }
+}
+
+/* TV / LARGE SCREEN (> 1600px) */
+@media (min-width: 1600px) {
+    .pd-container {
+        max-width: 1800px !important;
+        /* Wider on big screens */
+    }
+}
+
+/* RELATED PRODUCTS GRID (Mandatory 4/2/1) */
+.related-products-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+}
+
+@media (max-width: 1023px) {
+    .related-products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* Tablet */
+    }
+}
+
+@media (max-width: 767px) {
+    .related-products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* Mobile: 2 columns for better density */
+        gap: 10px !important;
+    }
+}

@@ -1,0 +1,1138 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* --- COLORS --- */
+  --primary: #ff3e6c;
+  --primary-dark: #d6335c;
+  --secondary: #1a1a2e;
+  --accent: #f8f9fa;
+  --text-color: #282c3f;
+  --text-light: #535766;
+  --light-gray: #f5f5f6;
+  --border-color: #eaeaec;
+  --white: #ffffff;
+  --shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+
+  /* --- TYPOGRAPHY SCALE (Normalized) --- */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px Base */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 2rem;
+  /* 32px - Section Headings */
+  --text-4xl: 2.5rem;
+  /* 40px */
+  --text-hero: 3.5rem;
+  /* 56px - Hero Title */
+
+  /* --- BREAKPOINTS --- */
+  --breakpoint-desktop: 1200px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 480px;
+  --breakpoint-small: 320px;
+
+  /* --- SPACING SYSTEM --- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3.5rem;
+  --space-xl: 5rem;
+}
+
+/* --- GLOBAL RESET & BASE --- */
+html {
+  font-size: 16px;
+  /* Baseline for Desktop (1200px+) */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* Proportional Scaling Logic: Reduce base font size as screen shrinks to maintain luxury ratio */
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 15.5px;
+  }
+}
+
+@media (max-width: 1400px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--white);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding-top: 80px;
+  /* Offset for fixed navbar */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  /* CENTER IMAGES GLOBALLY */
+}
+
+/* --- LAYOUT UTILITIES --- */
+.page-container,
+.container {
+  width: 100%;
+  max-width: 87.5rem;
+  /* 1400px / 16 = 87.5rem */
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  /* 40px / 16 = 2.5rem */
+  transition: all 0.3s ease;
+}
+
+.section-spacing {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+/* Navbar */
+.navbar {
+  height: 80px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Product Grid */
+/* .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  gap: 1.25rem;
+  padding: 2.5rem 0;
+} */
+
+/* Product Card */
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+  border: 0.0625rem solid var(--border-color);
+  height: 100%;
+  /* Ensures uniform card height */
+  display: flex;
+  flex-direction: column;
+  /* Hardware acceleration to prevent text/image shaking */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.product-card-link:hover .product-card {
+  transform: translateY(-0.5rem) translateZ(0);
+  box-shadow: 0 0.9375rem 1.875rem rgba(0, 0, 0, 0.12);
+}
+
+/* .product-image {
+  width: 100%;
+  height: 17.5rem;
+  object-fit: contain;
+  background-color: var(--light-gray);
+  display: block;
+  margin: 0 auto;
+  backface-visibility: hidden;
+} */
+
+.product-info {
+  padding: 0.9375rem;
+  flex-grow: 1;
+  /* Pushes content to fill the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Prevent text jitter */
+  transform: translateZ(0);
+}
+
+.product-brand {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.3125rem;
+}
+
+.product-name {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-top: 0.625rem;
+}
+
+/* Utilities */
+.section-padding {
+  padding: 60px 0;
+}
+
+.text-success {
+  color: #03a685;
+}
+
+.text-danger {
+  color: #ff3f6c;
+}
+
+/* Buttons */
+/* Buttons */
+button,
+.btn {
+  background: linear-gradient(135deg, var(--primary), #ff6f91);
+  border: none;
+  border-radius: 1.5625rem;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03125rem;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 62, 108, 0.3);
+  opacity: 1;
+  /* Reset opacity from boostrap-ish styles if any */
+}
+
+button:disabled,
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Checkout Layout */
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem;
+  padding: 2.5rem 1.25rem;
+  max-width: 75rem;
+  margin: auto;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  /* Footer Fix */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+.checkout-left,
+.checkout-right {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-total {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Hero Banner */
+.hero-banner {
+  height: 31.25rem;
+  background: linear-gradient(135deg, #ff3e6c, #ff9a8b, #fad0c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  border-radius: 0 0 1.25rem 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Store Buttons */
+.store-button {
+  padding: 0.625rem 1.125rem;
+  border-radius: 0.625rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.store-button:hover {
+  background: #2a2a40;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Home Background */
+.home-background {
+  background: linear-gradient(180deg, #f8f9fa, #ffffff);
+  min-height: 100vh;
+}
+
+/* Responsive Table Wrapper */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 950px;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* Product Details Page */
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.product-detail-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-detail-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #535766;
+  margin-bottom: 5px;
+}
+
+.product-detail-name {
+  font-size: 32px;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.product-detail-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  padding: 15px 0;
+  border-top: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.product-detail-sizes h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.size-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.size-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--white);
+  color: var(--secondary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.size-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.size-btn.active {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: rgba(255, 63, 108, 0.05);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.product-detail-meta {
+  margin-bottom: 30px;
+}
+
+.product-detail-meta p {
+  margin-bottom: 10px;
+}
+
+.product-detail-description h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* --- PREMIUM FASHION UI UPGRADE --- */
+
+/* 1. Fashion Color Palette */
+:root {
+  --primary: #ff3e6c;
+  --secondary: #1c1c1c;
+  --accent: #f8f9fa;
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 2. Modern Glassmorphism */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Hero Section Animation (Auto-Sliding) */
+
+/* 3. Hero Section Animation (Auto-Sliding) */
+.hero {
+  height: 85vh;
+  /* slightly less than full screen for navbar visibility */
+  position: relative;
+  overflow: hidden;
+  margin-top: -20px;
+  /* pull up to navbar if needed */
+}
+
+.hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1s ease, transform 6s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  text-align: left;
+  z-index: 10;
+  max-width: 600px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content button {
+  padding: 14px 40px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff3e6c, #ff7a95);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 62, 108, 0.4);
+}
+
+.hero-content button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(255, 62, 108, 0.6);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. Navbar Premium Style */
+.fashion-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.wishlist-icon {
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.3) rotate(5deg);
+  color: #ff3e6c;
+}
+
+/* 5. Product Hover Preview */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  /* Retain existing styles */
+}
+
+.product-image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card:hover .product-image-container img {
+  transform: scale(1.08);
+}
+
+.product-hover-actions {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.product-card:hover .product-hover-actions {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.action-btn.primary {
+  background: var(--secondary);
+  /* Dark elegant button */
+  color: white;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 6. Loader Animation */
+.loader-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff3e6c;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 7. Category Tile Styling */
+.category-tile {
+  width: 180px;
+  height: 240px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.category-tile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.category-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-tile:hover img {
+  transform: scale(1.1);
+}
+
+.category-tile-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  text-align: center;
+}
+
+.category-tile-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* --- LUXURY UI & LOADING UPGRADE (SESSION 8) --- */
+
+/* 1. Typography Overrides */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #ffffff, #f8f8f8, #ffffff);
+  color: #111;
+}
+
+h1,
+h2,
+h3,
+h4,
+.hero-title,
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
+}
+
+/* 2. Image Loader Animations */
+.image-loader-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  /* Fallback/Placeholder color */
+}
+
+.image-loader {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-loader.loaded {
+  opacity: 1;
+}
+
+.image-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+  background-size: 400% 100%;
+  animation: skeleton 1.4s ease infinite;
+  z-index: 1;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 100% 0
+  }
+
+  100% {
+    background-position: -100% 0
+  }
+}
+
+/* Navbar styles removed - using luxury.css */
+
+/* --- HERO SECTION MOVED TO LUXURY.CSS --- */
+.hero-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.hero-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+}
+
+/* 
+.hero-content, .hero-title, .hero-subtitle, .hero-btn 
+REMOVED to avoid conflicts with luxury.css 
+*/
+
+/* --- GRIDS MOVED TO LUXURY.CSS --- */
+
+/* --- RESPONSIVE CARDS --- */
+.category-card {
+  height: 18.75rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  /* Lift slightly */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-card span {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  text-align: left;
+}
+
+/* --- MOBILE RESPONSIVENESS (STEP 8 & 10) --- */
+@media (max-width: 1024px) {
+
+  /* Tablet */
+  /* Tablet overrides removed - using luxury.css and top-level App.css rules */
+
+  /* Removed Tablet hide - menu stays visible down to 600px */
+}
+
+/* Mobile Navbar & Grid Overrides delegated to luxury.css */
+
+/* Animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.section-wrapper {
+  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("https://images.unsplash.com/photo-1490481651871-618bf7959938?q=80&w=2070&auto=format&fit=crop");
+  background-size: cover;
+  padding: 5rem 0;
+}
+
+/* 8. ElegantFooter */
+.lux-footer {
+  background: #0f172a;
+  color: white;
+  padding: 5rem 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 9. Filters Luxury Style */
+.lux-filters {
+  background: white;
+  padding: 1.5625rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.05);
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 6.25rem;
+}
+
+.products-layout {
+  display: grid;
+  grid-template-columns: 17.5rem 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  max-width: 87.5rem;
+  margin: 0 auto;
+}
+
+/* Products Layout & Filters responsive rules in luxury.css */
+
+.filters-sidebar {
+  background: white;
+  padding: 1.5625rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+/* Conflicting overrides removed - using luxury.css and ProductDetail.css */
+
+/* --- NAVBAR ENHANCEMENTS --- */
+/* Navbar and Sort Dropdown logic moved to luxury.css */
+
+/* --- ADDRESS MANAGEMENT --- */
+.address-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr)) !important;
+  gap: 1.25rem !important;
+  margin-bottom: 1.875rem !important;
+}
+
+.address-card {
+  border: 0.0625rem solid #d4d5d9 !important;
+  border-radius: 0.5rem !important;
+  padding: 1.25rem !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.2s !important;
+  background: white !important;
+}
+
+.address-card:hover {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05) !important;
+  border-color: #282c3f !important;
+}
+
+.address-card.selected {
+  border: 0.125rem solid #ff3e6c !important;
+  background-color: #fff0f3 !important;
+}
+
+.address-actions {
+  display: flex !important;
+  gap: 0.9375rem !important;
+  margin-top: 0.9375rem !important;
+  padding-top: 0.9375rem !important;
+  border-top: 0.0625rem solid #eee !important;
+}
+
+.address-btn {
+  font-size: 0.8125rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.btn-edit {
+  color: #535766 !important;
+}
+
+.btn-delete {
+  color: #ff3e6c !important;
+}
+
+.add-address-card {
+  border: 0.125rem dashed #d4d5d9 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  color: #535766 !important;
+  font-weight: 700 !important;
+  min-height: 12.5rem !important;
+}
+
+.add-address-card:hover {
+  border-color: #ff3e6c !important;
+  color: #ff3e6c !important;
+}
+
+/* 5. Typography Hierarchy */
+h1 {
+  font-size: 2.5rem !important;
+  /* Normalized */
+  margin-bottom: 1.875rem !important;
+}
+
+h2,
+section h2 {
+  font-size: 2rem !important;
+  /* Normalized */
+  margin-bottom: 1.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.09375rem !important;
+}
+
+h3 {
+  font-size: 1.25rem !important;
+  /* Normalized */
+}
+
+/* Final cleanup of conflicting styles */

@@ -1,0 +1,67 @@
+# ======================
+# Dependencies
+# ======================
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# ======================
+# Environment variables (CRITICAL - never upload)
+# ======================
+.env
+backend/.env
+frontend/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ======================
+# Build folders
+# ======================
+dist/
+build/
+frontend/dist/
+backend/dist/
+
+# ======================
+# Logs
+# ======================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Editor files
+# ======================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ======================
+# Cache
+# ======================
+.cache/
+.parcel-cache/
+
+# ======================
+# Vite specific
+# ======================
+frontend/.vite/
+
+# ======================
+# Optional
+# ======================
+coverage/
