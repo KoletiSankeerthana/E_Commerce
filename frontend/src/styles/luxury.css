@@ -520,48 +520,57 @@
         grid-template-columns: repeat(2, 1fr) !important;
         align-items: start !important;
     }
-}
-
-
-
-@media (max-width: 600px) {
 
     .category-section,
     .product-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.625rem !important;
-        /* Tighter gap */
-        align-items: flex-start !important;
-        padding: 0 0.625rem 1.25rem !important;
+        gap: 0.5rem !important;
+        /* Extremely tight gap */
+        padding: 0 0.5rem 1rem !important;
+        align-items: stretch !important;
     }
 
     .lux-img {
         aspect-ratio: 1 / 1 !important;
-        /* Square for density */
+        background: #fff !important;
     }
 
     .product-info {
-        padding: 0.5rem !important;
+        padding: 0.4rem !important;
     }
 
     .product-brand {
-        font-size: 0.85rem !important;
-        height: 1rem !important;
-        line-height: 1rem !important;
-        margin-bottom: 0.125rem !important;
+        font-size: 0.8rem !important;
+        height: 0.9rem !important;
+        line-height: 0.9rem !important;
+        margin-bottom: 0.1rem !important;
     }
 
     .product-name {
-        font-size: 0.75rem !important;
-        height: 1.8rem !important;
-        line-height: 0.9rem !important;
-        margin-bottom: 0.25rem !important;
+        font-size: 0.7rem !important;
+        height: 1.6rem !important;
+        line-height: 0.8rem !important;
+        margin-bottom: 0.2rem !important;
     }
 
     .product-price {
-        font-size: 0.9rem !important;
-        height: 1.2rem !important;
-        gap: 0.25rem !important;
+        font-size: 0.85rem !important;
+        height: 1.1rem !important;
+    }
+
+    .in-stock-label {
+        font-size: 0.65rem !important;
+        margin-top: 2px !important;
+    }
+
+    /* Mobile Nav Optimization */
+    .nav-center {
+        gap: 0.75rem !important;
+        margin-right: 0.5rem !important;
+    }
+
+    .lux-logo {
+        margin-right: 0.5rem !important;
     }
 }
 
@@ -1366,69 +1375,7 @@
 
 /* --- TASK 2: GLOBAL RESPONSIVENESS & GRID --- */
 
-/* Mandatory 4/2/1 Column Grid for Products and Categories */
-/* Mandatory 4/2/1 Column Grid for Products and Categories */
-/* Mandatory Grid Responsiveness */
-@media (max-width: 600px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-        align-items: stretch !important;
-        /* BACK TO STRETCH: Uniform card heights */
-    }
-
-    /* REDUCE LENGTHY IMAGE BOX: Remove artificial background */
-    .lux-img {
-        height: 180px !important;
-        /* Compact height for 2-column mobile grid */
-    }
-
-    .lux-img img {
-        object-fit: contain !important;
-        /* NEVER CUT: Show full product */
-        padding: 5px;
-        /* Slight breathing room */
-    }
-
-    .category-section {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        align-items: start !important;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    /* HARMONIZED WITH NAVBAR BREAKPOINT */
-    .nav-center {
-        display: flex !important;
-        gap: 12px;
-        margin: 0;
-        overflow-x: auto;
-        white-space: nowrap;
-        scrollbar-width: none;
-        flex-grow: 1;
-        min-width: 0;
-    }
-
-    .logo-text {
-        font-size: 0.9rem !important;
-    }
-
-    .lux-logo img {
-        height: 40px !important;
-        width: 40px !important;
-    }
-
-    .nav-right {
-        gap: 12px !important;
-    }
-
-    .nav-icon {
-        font-size: 18px !important;
-    }
-}
+/* Standardized responsive rules handle this section */
 
 
 /* Footer Responsiveness */
@@ -1453,37 +1400,85 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
+    .lux-footer {
+        padding: 1.5rem 0.25rem !important;
+        /* Minimal padding */
+    }
+
     .footer-grid {
         grid-template-columns: repeat(3, 1fr) !important;
-        /* Keep 3 columns in one line */
-        gap: 10px !important;
+        /* Equal columns for balance */
+        gap: 0.3rem !important;
         text-align: center !important;
-        border-top: 1px solid #eaeaec;
-        /* The "line" requested */
-        padding-top: 20px;
-        margin-top: 20px;
-    }
-
-    .footer-grid h3 {
-        font-size: 0.7rem !important;
-    }
-
-    .footer-grid a {
-        font-size: 0.6rem !important;
     }
 
     .footer-section {
-        padding: 0 2px !important;
+        padding: 0 !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        /* Vertical divider */
     }
-}
 
-@media (max-width: 479px) {
-    .footer-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
-        /* Forces 3 columns even on smallest screens */
-        text-align: center !important;
-        gap: 8px !important;
+    .footer-section:last-child {
+        border-right: none;
+    }
+
+    .footer-grid h3 {
+        font-size: 0.6rem !important;
+        margin-bottom: 0.5rem !important;
+        letter-spacing: 0.3px !important;
+        white-space: nowrap !important;
+        /* Prevent height expansion */
+    }
+
+    .footer-grid ul li {
+        font-size: 0.6rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Horizontal layout with width-based scaling for clarity */
+    .lux-footer .flex-row {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        gap: 0.1rem !important;
+        /* Minimized gap to allow larger icons */
+    }
+
+    /* App Badges: Balanced Height-Based Scaling */
+    .lux-footer .flex-row:nth-of-type(1) a img {
+        height: 38px !important;
+        /* Match image 1 clarity levels */
+        width: auto !important;
+        max-width: none !important;
+        object-fit: contain !important;
+    }
+
+    /* Social Icons: Proportional Width-Based Scaling */
+    .lux-footer .flex-row:nth-of-type(2) a img {
+        width: 28px !important;
+        /* High clarity social icons */
+        height: auto !important;
+    }
+
+    /* Policy Mobile Compact */
+    .policy-container {
+        padding: 0.75rem !important;
+    }
+
+    .policy-sidebar {
+        padding-bottom: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .policy-sidebar div {
+        grid-template-columns: repeat(2, 1fr) !important;
+        font-size: 0.8rem !important;
+    }
+
+    .policy-metrics-grid {
+        gap: 0.75rem !important;
+        margin-top: 1rem !important;
     }
 }
 
@@ -1560,8 +1555,9 @@
 
 @media (max-width: 600px) {
     .features-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 0.25rem !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* Switch to 2x2 */
+        gap: 1rem 0.5rem !important;
         padding: 0 0.5rem !important;
     }
 
@@ -1823,8 +1819,10 @@
 
     .policy-sidebar div {
         display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
-        gap: 5px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* 2 compact columns */
+        gap: 8px !important;
+        font-size: 0.8rem !important;
     }
 }
 
@@ -1952,6 +1950,6 @@
         width: 100% !important;
         align-items: flex-start !important;
     }
-
-    /* End of premium styles */
 }
+
+/* End of premium styles */

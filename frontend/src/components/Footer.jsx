@@ -42,10 +42,10 @@ const Footer = () => {
 
                     <h3 style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'white', marginBottom: '15px', letterSpacing: '1.5px', textTransform: 'uppercase' }}>KEEP IN TOUCH</h3>
                     <div className="flex-row" style={{ display: 'flex', gap: '15px', alignItems: 'center', justifyContent: 'center' }}>
-                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" style={{ width: '22px' }} /></a>
-                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" style={{ width: '22px' }} /></a>
-                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style={{ width: '22px' }} /></a>
-                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" style={{ width: '26px' }} /></a>
+                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" style={{ width: '20px' }} /></a>
+                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" style={{ width: '20px' }} /></a>
+                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style={{ width: '20px' }} /></a>
+                        <a href="#" style={{ textDecoration: 'none' }}><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" style={{ width: '20px' }} /></a>
                     </div>
                 </div>
             </div>
@@ -53,14 +53,15 @@ const Footer = () => {
             {/* Bottom Section */}
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src="/images/logo.png" alt="StyleStore Logo" style={{ height: '50px', width: '50px', objectFit: 'contain' }} />
+                    <img src="/images/logo.png" alt="StyleStore Logo" style={{ height: '50px', width: '100px', objectFit: 'contain', marginLeft: '-60px' }} />
                     <span style={{
                         fontSize: '1.2rem',
                         fontFamily: "'Playfair Display', serif",
                         color: 'white',
                         fontWeight: '800',
                         letterSpacing: '2px',
-                        textTransform: 'uppercase'
+                        textTransform: 'uppercase',
+                        marginLeft: '-40px'
                     }}>STYLE STORE</span>
                 </Link>
                 <p style={{ marginTop: '5px', color: '#666', fontSize: '0.65rem', marginLeft: '-10px' }}>&copy; 2026 Style Store. All rights reserved.</p>
