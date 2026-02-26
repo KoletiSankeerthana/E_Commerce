@@ -17,7 +17,7 @@ const AdminProducts = () => {
 
         const fetchProducts = async () => {
             try {
-                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/api/products');
+                const { data } = await axios.get('https://ecommerce-vwsy.onrender.com/products');
                 const safeProducts = Array.isArray(data) ? data : [];
 
                 setProducts(safeProducts);
@@ -34,8 +34,8 @@ const AdminProducts = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
             try {
-                await axios.delete(`https://ecommerce-vwsy.onrender.com/api/products/${id}`);
-                await axios.delete(`https://ecommerce-vwsy.onrender.com/api/products/${id}`);
+                await axios.delete(`https://ecommerce-vwsy.onrender.com/products/${id}`);
+                await axios.delete(`https://ecommerce-vwsy.onrender.com/products/${id}`);
                 setProducts(products.filter(product => product._id !== id));
             } catch (error) {
                 alert('Delete failed');

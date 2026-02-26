@@ -44,7 +44,7 @@ const TrackOrder = () => {
         await Promise.all(order.orderItems.map(async (item) => {
             if (!item.product?._id) return;
             try {
-                const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/api/products/${item.product._id}`);
+                const { data } = await axios.get(`https://ecommerce-vwsy.onrender.com/products/${item.product._id}`);
                 const product = data || {};
 
                 const reviews = Array.isArray(product.reviews) ? product.reviews : [];
@@ -126,7 +126,7 @@ const TrackOrder = () => {
 
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         try {
-            await axios.delete(`https://ecommerce-vwsy.onrender.com/api/products/${productId}/reviews`, {
+            await axios.delete(`https://ecommerce-vwsy.onrender.com/products/${productId}/reviews`, {
                 headers: { Authorization: `Bearer ${userInfo.token}` }
             });
 
@@ -145,7 +145,7 @@ const TrackOrder = () => {
 
         try {
             if (isEditingMetadata) {
-                await axios.put(`https://ecommerce-vwsy.onrender.com/api/products/${selectedProduct._id}/reviews`, {
+                await axios.put(`https://ecommerce-vwsy.onrender.com/products/${selectedProduct._id}/reviews`, {
                     rating,
                     comment
                 }, {
@@ -153,7 +153,7 @@ const TrackOrder = () => {
                 });
                 alert('Review updated successfully!');
             } else {
-                await axios.post(`https://ecommerce-vwsy.onrender.com/api/products/${selectedProduct._id}/reviews`, {
+                await axios.post(`https://ecommerce-vwsy.onrender.com/products/${selectedProduct._id}/reviews`, {
                     rating,
                     comment
                 }, {
