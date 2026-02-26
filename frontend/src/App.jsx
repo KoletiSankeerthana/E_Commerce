@@ -74,6 +74,7 @@ function AnimatedRoutes() {
 
 function App() {
   return (
+    <>
       <Navbar />
       <main>
         <ErrorBoundary>
@@ -81,6 +82,7 @@ function App() {
         </ErrorBoundary>
       </main>
       <Footer />
+    </>
   );
 }
 
