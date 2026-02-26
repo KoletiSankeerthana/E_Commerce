@@ -55,8 +55,8 @@
 
 /* REMOVED NUCLEAR OPTION - Using standard scaling */
 .hero-title {
-    font-size: clamp(1.4rem, 8vw, 6rem);
-    /* REFINED FLUID SCALING for Mobile */
+    font-size: clamp(1.4rem, 6vw, 4.5rem);
+    /* REFINED FLUID SCALING for smaller overall text */
     font-weight: 800;
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
@@ -176,12 +176,12 @@
     font-size: clamp(0.6rem, 1.2vw, 0.95rem);
     /* REFINED BUTTON TEXT FOR MOBILE */
     font-weight: 700;
-    border-radius: clamp(0.6rem, 1.5vw, 1rem);
+    border-radius: 2rem;
     opacity: 0;
     transform: translateY(1.25rem);
     animation: buttonReveal 0.8s ease forwards;
     animation-delay: 1.6s;
-    background: #1a2238;
+    background: #ff3e6c;
     color: white;
     border: none;
     cursor: pointer;
@@ -202,32 +202,34 @@
 
 .hero-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    background: #ff3e6c;
+    box-shadow: 0 8px 25px rgba(255, 62, 108, 0.3);
+    background: #d42b56;
     /* Accent on hover */
 }
 
 /* --- Mobile Specific Hero Adjustments --- */
 @media (max-width: 600px) {
     .hero-title {
-        font-size: clamp(1.2rem, 8vw, 2.2rem);
-        margin-bottom: 0.5rem !important;
+        font-size: clamp(1.1rem, 6vw, 1.8rem);
+        line-height: 1 !important;
+        margin-bottom: 0 !important;
         margin-top: -5px;
         margin-left: -5px;
     }
 
     .hero-subtitle {
-        font-size: clamp(0.8rem, 4vw, 1rem);
-        margin-bottom: 1rem !important;
-        margin-top: -5px;
+        font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+        line-height: 1.05 !important;
+        margin-bottom: 0.2rem !important;
+        margin-top: -20px;
         margin-left: -5px;
     }
 
     .hero-btn {
         padding: 0.5rem 1rem;
         font-size: 0.75rem;
-        margin-top: 0.2rem;
-        margin-left: -5px;
+        margin-top: -20px;
+        margin-left: -10px;
     }
 }
 
@@ -246,17 +248,7 @@
 }
 
 /* Intermediate Breakpoints for Half-Screen/Tablet */
-@media (max-width: 1100px) {
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
-}
-
-@media (max-width: 850px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
+/* Removed 1100px and 850px overrides to ensure 4 columns on half-screen */
 
 /* Ensure grid items can shrink for half-screen views */
 .category-card,
@@ -282,28 +274,26 @@
 
 .lux-img {
     width: 100% !important;
-    aspect-ratio: 3 / 4 !important;
-    height: auto !important;
-    /* Removed fixed pixel/rem height for fluid responsiveness */
+    padding-bottom: 133.333% !important;
+    /* Foolproof 3:4 intrinsic ratio */
+    height: 0 !important;
     background: #ffffff !important;
     position: relative !important;
     overflow: hidden !important;
-    display: flex !important;
-    /* Rule 1 & 4: Flex centering */
-    align-items: center !important;
-    justify-content: center !important;
+    display: block !important;
 }
 
 .lux-img img {
-    /* Rule 2 & 4: No absolute positioning, use flex logic */
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     max-width: 100% !important;
-    /* Rule 3: Prevention of overflow */
     max-height: 100% !important;
     object-fit: contain !important;
-    /* Rule 2: Proportional scaling */
-    background: #ffffff !important;
+    object-position: top !important;
+    background: transparent !important;
     transition: transform 0.6s ease;
 }
 
@@ -508,19 +498,26 @@
 }
 
 .category-img-wrapper {
-    width: 100%;
-    aspect-ratio: 3 / 4 !important;
-    height: auto !important;
-    overflow: hidden;
-    border-radius: 0.25rem;
+    width: 100% !important;
+    padding-bottom: 133.333% !important;
+    /* Foolproof 3:4 intrinsic ratio */
+    height: 0 !important;
+    overflow: hidden !important;
+    border-radius: 0.25rem !important;
     background: #ffffff !important;
+    position: relative !important;
+    display: block !important;
 }
 
 .category-img-wrapper img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
-    background: #ffffff !important;
+    object-position: center !important;
+    background: transparent !important;
     transition: transform 0.4s ease;
 }
 
@@ -542,7 +539,18 @@
 @media (max-width: 600px) {
     .category-img-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        /* Restored 2x2 grid for mobile to prevent cut-off */
+        gap: 0.5rem !important;
+        padding: 0 0.5rem 1rem !important;
         align-items: start !important;
+    }
+
+
+
+    .category-img-label {
+        margin-top: 0.4rem !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.05rem !important;
     }
 
     .category-section,
@@ -555,7 +563,7 @@
     }
 
     .lux-img {
-        aspect-ratio: 1 / 1 !important;
+        /* Legacy aspect ratio removed in favor of padding-bottom global hack */
         background: #fff !important;
     }
 
@@ -1612,21 +1620,32 @@
 
 @media (max-width: 600px) {
     .features-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        /* Switch to 2x2 */
-        gap: 1rem 0.5rem !important;
-        padding: 0 0.5rem !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        /* Forced 1 row of 4 columns */
+        gap: 0.25rem !important;
+        padding: 0 0.25rem !important;
     }
 
     .feature-card {
-        padding: 0.35rem !important;
+        padding: 0.25rem !important;
     }
 
     .feature-icon-wrapper {
-        width: 36px !important;
-        height: 36px !important;
-        font-size: 16px !important;
-        margin-bottom: 6px !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 14px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .feature-title {
+        font-size: 0.45rem !important;
+        letter-spacing: 0 !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .feature-desc {
+        font-size: 0.4rem !important;
+        line-height: 1.2 !important;
     }
 }
 
@@ -2007,6 +2026,31 @@
         width: 100% !important;
         align-items: flex-start !important;
     }
+}
+
+/* Pagination & Global Generic Button Overrides (Pink Theme) */
+.btn {
+    background: #ff3e6c !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 2rem !important;
+    padding: 0.5rem 1.5rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+}
+
+.btn:hover:not(:disabled) {
+    background: #d42b56 !important;
+    box-shadow: 0 4px 15px rgba(255, 62, 108, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn:disabled {
+    background: #ff98b0 !important;
+    cursor: not-allowed !important;
+    opacity: 0.7 !important;
 }
 
 /* End of premium styles */
