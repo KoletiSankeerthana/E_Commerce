@@ -246,7 +246,7 @@
 
 .lux-img {
     width: 100% !important;
-    height: 350px !important;
+    height: 30px !important;
     /* Rule 1 & 5: Fixed height */
     background: #ffffff !important;
     position: relative !important;
