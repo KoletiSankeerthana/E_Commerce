@@ -55,8 +55,8 @@
 
 /* REMOVED NUCLEAR OPTION - Using standard scaling */
 .hero-title {
-    font-size: clamp(1.8rem, 10vw, 6rem);
-    /* REFINED FLUID SCALING */
+    font-size: clamp(1.4rem, 8vw, 6rem);
+    /* REFINED FLUID SCALING for Mobile */
     font-weight: 800;
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
@@ -171,10 +171,10 @@
 
 .hero-btn {
     margin-top: 0.3rem;
-    padding: clamp(0.4rem, 1.2vw, 0.8rem) clamp(0.8rem, 2.5vw, 1.5rem);
-    /* REFINED PADDING */
-    font-size: clamp(0.7rem, 1.5vw, 0.95rem);
-    /* REFINED BUTTON TEXT */
+    padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
+    /* REFINED PADDING FOR MOBILE */
+    font-size: clamp(0.6rem, 1.2vw, 0.95rem);
+    /* REFINED BUTTON TEXT FOR MOBILE */
     font-weight: 700;
     border-radius: clamp(0.6rem, 1.5vw, 1rem);
     opacity: 0;
@@ -205,6 +205,30 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     background: #ff3e6c;
     /* Accent on hover */
+}
+
+/* --- Mobile Specific Hero Adjustments --- */
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: clamp(1.2rem, 8vw, 2.2rem);
+        margin-bottom: 0.5rem !important;
+        margin-top: -5px;
+        margin-left: -5px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+        margin-bottom: 1rem !important;
+        margin-top: -5px;
+        margin-left: -5px;
+    }
+
+    .hero-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        margin-top: 0.2rem;
+        margin-left: -5px;
+    }
 }
 
 /* Main Grid Standard */
@@ -885,25 +909,58 @@
 
 
 @media (min-width: 601px) and (max-width: 1199px) {
+    .nav-content {
+        gap: 0.25rem !important;
+        padding: 0.4rem 0.25rem !important;
+    }
+
     .nav-center {
-        gap: 0.5rem;
+        gap: 0.3rem !important;
+        margin-right: 0.2rem !important;
     }
 
     .nav-item {
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
     }
 
     .nav-search-wrapper {
-        width: auto !important;
-        flex-grow: 1;
-        max-width: 200px;
+        width: 100px !important;
+        flex-grow: 0 !important;
+        max-width: 100px !important;
+    }
+
+    .nav-search-input {
+        padding: 0.5rem 1.5rem 0.5rem 0.5rem !important;
+        font-size: 0.70rem !important;
+    }
+
+    .lux-logo .logo-text {
+        font-size: 0.75rem !important;
+    }
+
+    .custom-sort-dropdown {
+        padding: 0 0.25rem !important;
+    }
+
+    .sort-label-text {
+        font-size: 0.65rem !important;
+    }
+
+    .nav-tools {
+        gap: 0.3rem !important;
+    }
+
+    .nav-icon {
+        font-size: 1rem !important;
     }
 }
 
 .lux-navbar {
     background: #ffffff;
     box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.05);
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -1447,8 +1504,8 @@
 
     /* App Badges: Balanced Height-Based Scaling */
     .lux-footer .flex-row:nth-of-type(1) a img {
-        height: 38px !important;
-        /* Match image 1 clarity levels */
+        height: 24px !important;
+        /* Significantly decreased for equal column spacing on small screens */
         width: auto !important;
         max-width: none !important;
         object-fit: contain !important;
@@ -1456,8 +1513,8 @@
 
     /* Social Icons: Proportional Width-Based Scaling */
     .lux-footer .flex-row:nth-of-type(2) a img {
-        width: 28px !important;
-        /* High clarity social icons */
+        width: 20px !important;
+        /* Decreased social icons for equal column spacing */
         height: auto !important;
     }
 

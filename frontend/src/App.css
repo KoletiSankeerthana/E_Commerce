@@ -136,8 +136,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  padding-top: 80px;
-  /* Offset for fixed navbar */
+  /* Removed padding-top here because .lux-navbar is position: sticky */
 }
 
 img {
