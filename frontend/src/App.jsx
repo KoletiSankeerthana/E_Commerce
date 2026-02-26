@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
@@ -74,7 +74,6 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <Router>
       <Navbar />
       <main>
         <ErrorBoundary>
@@ -82,7 +81,6 @@ function App() {
         </ErrorBoundary>
       </main>
       <Footer />
-    </Router>
   );
 }
 
