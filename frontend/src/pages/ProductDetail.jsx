@@ -24,11 +24,11 @@ const ProductDetail = () => {
             setLoading(true);
             try {
                 // Fetch Product
-                const { data } = await api.get(`/api/products/${id}`);
+                const { data } = await api.get(`/products/${id}`);
                 setProduct(data);
 
                 // Fetch Related
-                const relatedRes = await api.get(`/api/products/${id}/related`);
+                const relatedRes = await api.get(`/products/${id}/related`);
                 setRelatedProducts(relatedRes.data);
 
                 // Fire and forget: Recently Viewed
