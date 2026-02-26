@@ -524,14 +524,44 @@
 
 
 
-/* Mobile - drop to 2 columns only on very small screens */
 @media (max-width: 600px) {
 
     .category-section,
     .product-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem !important;
-        align-items: start !important;
+        gap: 0.625rem !important;
+        /* Tighter gap */
+        align-items: flex-start !important;
+        padding: 0 0.625rem 1.25rem !important;
+    }
+
+    .lux-img {
+        aspect-ratio: 1 / 1 !important;
+        /* Square for density */
+    }
+
+    .product-info {
+        padding: 0.5rem !important;
+    }
+
+    .product-brand {
+        font-size: 0.85rem !important;
+        height: 1rem !important;
+        line-height: 1rem !important;
+        margin-bottom: 0.125rem !important;
+    }
+
+    .product-name {
+        font-size: 0.75rem !important;
+        height: 1.8rem !important;
+        line-height: 0.9rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .product-price {
+        font-size: 0.9rem !important;
+        height: 1.2rem !important;
+        gap: 0.25rem !important;
     }
 }
 
@@ -1923,70 +1953,5 @@
         align-items: flex-start !important;
     }
 
-    /* PRODUCT CARD */
-    .lux-card {
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    .lux-card:hover {
-        transform: translateY(-5px);
-    }
-
-    /* IMAGE CONTAINER */
-    .lux-img {
-        position: relative;
-        width: 100%;
-        height: 320px;
-        overflow: hidden;
-        background: #f5f5f5;
-    }
-
-    /* IMAGE */
-    .product-image {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-    }
-
-    /* HOVER BUTTON CONTAINER */
-    .product-hover-actions {
-        position: absolute;
-        bottom: 15px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .lux-card:hover .product-hover-actions {
-        opacity: 1;
-    }
-
-    /* BUTTON */
-    .action-btn {
-        padding: 8px 14px;
-        border-radius: 6px;
-        border: none;
-        background: #eee;
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    /* PRIMARY BUTTON */
-    .action-btn.primary {
-        background: #1d2b4f;
-        color: white;
-    }
-
-    .action-btn.primary:hover {
-        background: #16203a;
-    }
+    /* End of premium styles */
 }
