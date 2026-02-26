@@ -21,7 +21,7 @@ const AdminCreateProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://ecommerce-vwsy.onrender.com/api/products', formData);
+            await axios.post('https://ecommerce-vwsy.onrender.com/products', formData);
             alert('Product Created Successfully');
             navigate('/admin/products');
         } catch (error) {
