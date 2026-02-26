@@ -1932,8 +1932,9 @@
     /* IMAGE */
     .product-image {
         width: 100%;
-        height: 100%;
-        object-fit: contain;
+        height: 220px;
+        object-fit: cover;
+        display: block;
     }
 
     /* HOVER BUTTON CONTAINER */
