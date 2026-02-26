@@ -133,7 +133,7 @@ const Home = () => {
         const fetchLandingData = async () => {
             try {
                 // 1. Fetch Bestsellers (sorted by rating)
-                const bestSellerRes = await api.get('/products?sort=rating&limit=30');
+                const bestSellerRes = await api.get('/api/products?sort=rating&limit=30');
                 const productsArray = bestSellerRes.data.products || bestSellerRes.data;
 
                 if (productsArray && productsArray.length > 0) {
