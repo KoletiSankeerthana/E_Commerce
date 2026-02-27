@@ -1505,9 +1505,9 @@
     }
 
     .footer-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
-        /* Equal columns for balance */
-        gap: 0.3rem !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        /* Strict equal columns for balance */
+        gap: 0.5rem !important;
         text-align: center !important;
     }
 
@@ -1536,25 +1536,31 @@
 
     /* Horizontal layout with width-based scaling for clarity */
     .lux-footer .flex-row {
-        flex-direction: row !important;
+        flex-direction: column !important;
         flex-wrap: nowrap !important;
         justify-content: center !important;
-        gap: 0.1rem !important;
-        /* Minimized gap to allow larger icons */
+        gap: 0.3rem !important;
+        /* Stack app badges vertically to save horizontal space and keep spacing equal */
     }
 
     /* App Badges: Balanced Height-Based Scaling */
     .lux-footer .flex-row:nth-of-type(1) a img {
-        height: 24px !important;
-        /* Significantly decreased for equal column spacing on small screens */
+        height: 18px !important;
+        /* Reduced size so 3 columns can safely fit */
         width: auto !important;
-        max-width: none !important;
+        max-width: 100% !important;
         object-fit: contain !important;
     }
 
     /* Social Icons: Proportional Width-Based Scaling */
+    .lux-footer .flex-row:nth-of-type(2) {
+        flex-direction: row !important;
+        /* Keep social icons horizontal */
+        gap: 0.4rem !important;
+    }
+
     .lux-footer .flex-row:nth-of-type(2) a img {
-        width: 20px !important;
+        width: 15px !important;
         /* Decreased social icons for equal column spacing */
         height: auto !important;
     }
