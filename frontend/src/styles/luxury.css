@@ -1499,8 +1499,8 @@
         font-size: 0.6rem !important;
         margin-bottom: 0.5rem !important;
         letter-spacing: 0.3px !important;
-        white-space: nowrap !important;
-        /* Prevent height expansion */
+        white-space: normal !important;
+        /* Allow wrapping to prevent overflow */
     }
 
     .footer-grid ul li {
