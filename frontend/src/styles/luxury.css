@@ -1270,6 +1270,8 @@
         min-width: 0 !important;
         margin: 0 !important;
         background: transparent !important;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     .nav-search-input {
@@ -1303,6 +1305,8 @@
         /* Take half remaining space securely */
         min-width: 0 !important;
         margin: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     .custom-sort-dropdown {
@@ -1314,7 +1318,8 @@
         padding: 0 0.2rem !important;
         /* Reduced padding to fit text */
         min-width: 0 !important;
-        font-size: 0.55rem !important;
+        font-size: 0.65rem !important;
+        /* Restored readable font size now that space is truly split 50/50 */
         gap: 0.1rem !important;
         /* Reduced gap between text and arrow */
         box-sizing: border-box !important;
