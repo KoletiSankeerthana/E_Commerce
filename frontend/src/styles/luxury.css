@@ -1275,9 +1275,10 @@
     }
 
     .nav-search-input {
-        padding: 0 1rem 0 0.2rem !important;
-        /* Reduced padding to stop placeholder truncation */
-        font-size: 0.7rem !important;
+        padding: 0 0.8rem 0 0.2rem !important;
+        /* Reduced right padding to 0.8rem to stop placeholder truncation */
+        font-size: 0.65rem !important;
+        /* Matched Sort dropdown font size */
         width: 100% !important;
         height: 32px !important;
         min-height: 32px !important;
@@ -1293,10 +1294,11 @@
     }
 
     .nav-search-icon {
-        right: 0.2rem !important;
+        right: 0.1rem !important;
         /* Icon goes snugly on the right */
         left: auto !important;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
+        /* Slightly smaller to fit in the 0.8rem space */
     }
 
     /* Row 1 Middle: Sort */
