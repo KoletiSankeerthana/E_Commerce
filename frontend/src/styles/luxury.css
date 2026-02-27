@@ -237,7 +237,7 @@
 .category-section,
 .product-grid {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: clamp(0.75rem, 1.5vw, 1.875rem) !important;
     padding: 0 1.25rem 2.5rem !important;
     max-width: 1280px !important;
@@ -256,6 +256,13 @@
     min-width: 0;
 }
 
+/* Fix for Grid Stretch (Link Wrapper must pass down height) */
+.product-card-link {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
 /* UNIFORM CARD STYLES (Fixes Zigzag) */
 .lux-card {
     display: flex !important;
@@ -266,33 +273,32 @@
     border-radius: 0.25rem;
     overflow: hidden;
     position: relative;
-    height: 100%;
-    /* Fill grid cell */
+    height: 100% !important;
+    flex-grow: 1 !important;
+    /* Fill grid cell completely */
     border: 1px solid #eaeaec;
     /* Consistent border */
 }
 
 .lux-img {
     width: 100% !important;
-    padding-bottom: 133.333% !important;
-    /* Foolproof 3:4 intrinsic ratio */
-    height: 0 !important;
-    background: #ffffff !important;
+    aspect-ratio: 3 / 4 !important;
+    height: auto !important;
+    background: #f4f5f7 !important;
     position: relative !important;
     overflow: hidden !important;
     display: block !important;
+    /* Block ensures aspect-ratio is strictly honored without flex collapse */
 }
 
 .lux-img img {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     max-width: 100% !important;
     max-height: 100% !important;
     object-fit: contain !important;
-    object-position: top !important;
+    object-position: center !important;
+    mix-blend-mode: multiply !important;
     background: transparent !important;
     transition: transform 0.6s ease;
 }
@@ -324,7 +330,7 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    /* Internal spacing */
+    /* Space naturally distributes text to top and bottom to bottom */
     flex-grow: 1 !important;
     /* Fills remaining card space */
     align-items: center !important;
@@ -339,10 +345,11 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    flex-wrap: wrap !important;
     gap: 0.5rem !important;
     margin-bottom: 0.3125rem !important;
-    height: 1.5rem !important;
-    /* FIXED HEIGHT */
+    height: auto !important;
+    min-height: 1.5rem !important;
 }
 
 .product-brand {
@@ -434,7 +441,7 @@
 /* ── Shop by Category: Text-Only Link Grid ── */
 .category-text-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
     padding: 0 1.25rem 2.5rem;
     max-width: 1280px;
@@ -476,7 +483,7 @@
 /* ── Shop by Category: Image Cards with Plain Labels ── */
 .category-img-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.25rem;
     padding: 0 1.25rem 2.5rem;
     max-width: 1280px;
@@ -498,25 +505,22 @@
 }
 
 .category-img-wrapper {
-    width: 100% !important;
-    padding-bottom: 133.333% !important;
-    /* Foolproof 3:4 intrinsic ratio */
-    height: 0 !important;
-    overflow: hidden !important;
-    border-radius: 0.25rem !important;
-    background: #ffffff !important;
-    position: relative !important;
-    display: block !important;
+    width: 100%;
+    aspect-ratio: 3 / 4 !important;
+    height: auto !important;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    background: #f4f5f7 !important;
+    /* Gentle gray defining the equal-height box */
 }
 
 .category-img-wrapper img {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
     object-position: center !important;
+    mix-blend-mode: multiply !important;
+    /* Eliminates white background */
     background: transparent !important;
     transition: transform 0.4s ease;
 }
@@ -545,7 +549,10 @@
         align-items: start !important;
     }
 
-
+    .category-img-wrapper {
+        aspect-ratio: 3 / 4 !important;
+        height: auto !important;
+    }
 
     .category-img-label {
         margin-top: 0.4rem !important;
@@ -563,7 +570,7 @@
     }
 
     .lux-img {
-        /* Legacy aspect ratio removed in favor of padding-bottom global hack */
+        aspect-ratio: 3 / 4 !important;
         background: #fff !important;
     }
 
@@ -1773,14 +1780,14 @@
 .payment-method-item {
     border: 0.0625rem solid #d4d5d9 !important;
     border-radius: 0.75rem !important;
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 0 !important;
     transition: all 0.3s !important;
 }
 
 .payment-method-label {
     display: flex !important;
     align-items: center !important;
-    padding: clamp(0.9375rem, 3vw, 1.5625rem) !important;
+    padding: clamp(0.6rem, 2vw, 1rem) !important;
     cursor: pointer !important;
 }
 
@@ -2054,3 +2061,29 @@
 }
 
 /* End of premium styles */
+/* Pagination Buttons */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+    flex-wrap: nowrap;
+}
+
+.pagination-btn {
+    font-size: clamp(0.7rem, 2.5vw, 1rem) !important;
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.75rem, 3vw, 1.25rem) !important;
+    white-space: nowrap !important;
+    min-width: fit-content;
+}
+
+.pagination-info {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+    white-space: nowrap;
+}
