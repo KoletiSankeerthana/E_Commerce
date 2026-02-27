@@ -1209,9 +1209,9 @@
     .nav-content {
         display: grid !important;
         grid-template-areas:
-            "logo search sort icons"
-            "menu menu menu menu" !important;
-        grid-template-columns: max-content minmax(0, 1fr) minmax(0, 1fr) max-content !important;
+            "logo tools"
+            "menu menu" !important;
+        grid-template-columns: max-content 1fr !important;
         align-items: center;
         gap: 0.5rem !important;
         padding: 0.3rem 0.4rem !important;
@@ -1226,29 +1226,37 @@
     }
 
     .lux-logo img {
-        height: 24px !important;
-        width: 24px !important;
+        height: 30px !important;
+        width: 30px !important;
     }
 
     .logo-text {
-        font-size: 0.75rem !important;
+        font-size: 0.9rem !important;
         display: inline !important;
         letter-spacing: 0.01rem !important;
         white-space: nowrap !important;
     }
 
-    /* Flatten tools so search/sort/icons participate in the main grid */
+    /* Group Search, Sort, Icons together securely */
     .nav-tools {
-        display: contents !important;
+        grid-area: tools;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.35rem !important;
+        width: 100% !important;
+        min-width: 0 !important;
     }
 
     /* Row 1 right: icons */
     .nav-icons-group {
-        grid-area: icons;
         display: flex !important;
         justify-content: flex-end;
         align-items: center;
         gap: 0.35rem !important;
+        flex: 0 0 auto !important;
+        /* Never shrink icons */
     }
 
     .nav-icon {
@@ -1257,16 +1265,15 @@
 
     /* Row 1 Middle: Search */
     .nav-search-wrapper {
-        grid-area: search;
-        width: 100% !important;
-        max-width: none !important;
+        flex: 1 1 0% !important;
+        /* Take half remaining space securely */
         min-width: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin: 0 !important;
     }
 
     .nav-search-input {
-        padding: 0.3rem 0.4rem 0.3rem 1.6rem !important;
+        padding: 0.3rem 1.4rem 0.3rem 0.4rem !important;
+        /* Room for icon on right */
         font-size: 0.7rem !important;
         width: 100% !important;
         min-width: 0 !important;
@@ -1275,15 +1282,16 @@
     }
 
     .nav-search-icon {
-        left: 0.3rem !important;
+        right: 0.4rem !important;
+        /* Icon goes on the right */
+        left: auto !important;
         font-size: 0.8rem !important;
     }
 
     /* Row 1 Middle: Sort */
     .nav-sort-wrapper {
-        grid-area: sort;
-        width: 100% !important;
-        max-width: none !important;
+        flex: 1 1 0% !important;
+        /* Take half remaining space securely */
         min-width: 0 !important;
         margin: 0 !important;
     }
