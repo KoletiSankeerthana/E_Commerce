@@ -1272,15 +1272,19 @@
     }
 
     .nav-search-input {
-        padding: 0.3rem 1.4rem 0.3rem 0.4rem !important;
+        padding: 0 1.4rem 0 0.4rem !important;
         /* Room for icon on right */
         font-size: 0.7rem !important;
         width: 100% !important;
-        height: 2.0rem !important;
+        height: 32px !important;
+        min-height: 32px !important;
         /* Force exact height */
         min-width: 0 !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        border-radius: 4px !important;
+        border: 1px solid #d4d5d9 !important;
+        /* Match sort dropdown border so heights appear visually identical */
     }
 
     .nav-search-icon {
@@ -1300,7 +1304,8 @@
 
     .custom-sort-dropdown {
         width: 100% !important;
-        height: 2.0rem !important;
+        height: 32px !important;
+        min-height: 32px !important;
         /* Force exact height to match search */
         justify-content: space-between !important;
         padding: 0 0.4rem !important;
@@ -1308,6 +1313,8 @@
         font-size: 0.7rem !important;
         gap: 0.2rem !important;
         box-sizing: border-box !important;
+        border-radius: 4px !important;
+        border: 1px solid #d4d5d9 !important;
     }
 
     .sort-label-text {
