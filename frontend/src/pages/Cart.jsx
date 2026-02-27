@@ -117,7 +117,7 @@ const Cart = () => {
     return (
         <PageWrapper>
             <div className="page-container">
-                <h1 className="page-title">SHOPPING BAG ({cartItems.length} ITEMS)</h1>
+                <h1 className="page-title">SHOPPING BAG <span style={{ whiteSpace: 'nowrap' }}>({cartItems.length} ITEMS)</span></h1>
 
                 {cartItems.length === 0 ? (
                     <div style={{ textAlign: 'center', padding: '50px 0' }}>
