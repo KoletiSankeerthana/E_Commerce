@@ -107,7 +107,7 @@ const Payment = () => {
                 <div className="section-card">
                     <h3 className="section-card-title">Choose Payment Mode</h3>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {/* UPI Option */}
                         <div className="payment-method-item">
                             <label className="payment-method-label">
@@ -122,7 +122,7 @@ const Payment = () => {
                                 <span className="payment-method-text">UPI (Google Pay, PhonePe, Paytm)</span>
                             </label>
                             {paymentMethod === "UPI" && (
-                                <div style={{ padding: '0 15px 15px 50px' }}>
+                                <div style={{ padding: '0 15px 10px 50px' }}>
                                     <input
                                         type="text"
                                         placeholder="Enter UPI ID (e.g. name@upi)"
@@ -149,7 +149,7 @@ const Payment = () => {
                                 <span className="payment-method-text">Credit / Debit Card</span>
                             </label>
                             {paymentMethod === "Card" && (
-                                <div style={{ padding: '0 15px 15px 50px' }}>
+                                <div style={{ padding: '0 15px 10px 50px' }}>
                                     <input
                                         type="text"
                                         placeholder="Card Number"
@@ -196,7 +196,7 @@ const Payment = () => {
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '50px' }}>
+                    <div style={{ marginTop: '25px' }}>
                         <button
                             onClick={handleInitialSubmit}
                             className="btn btn-primary"

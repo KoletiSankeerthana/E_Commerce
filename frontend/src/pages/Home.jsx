@@ -222,23 +222,21 @@ const Home = () => {
 
                     {/* Pagination */}
                     {!searchQuery && totalPages > 1 && (
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.9375rem', marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+                        <div className="pagination-container">
                             <button
                                 onClick={() => changePage(page - 1)}
                                 disabled={page === 1}
-                                className="btn"
-                                style={{ fontSize: '1.2rem' }}
+                                className="btn pagination-btn"
                             >
                                 PREVIOUS PAGE
                             </button>
-                            <span style={{ display: 'flex', alignItems: 'center', fontWeight: 'bold', fontSize: '1.2rem' }}>
+                            <span className="pagination-info">
                                 Page {page} of {totalPages}
                             </span>
                             <button
                                 onClick={() => changePage(page + 1)}
                                 disabled={page === totalPages}
-                                className="btn"
-                                style={{ fontSize: '1.2rem' }}
+                                className="btn pagination-btn"
                             >
                                 NEXT PAGE
                             </button>

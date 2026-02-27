@@ -25,8 +25,6 @@ const ProductCard = ({ product }) => {
                     alt={product.name}
                     className="product-image"
                     style={{
-                        background: '#fff',
-                        objectFit: 'contain',
                         width: '100%',
                         height: '100%',
                         transition: 'all 0.5s ease'
@@ -56,49 +54,51 @@ const ProductCard = ({ product }) => {
 
                 </div>
 
-                <div className="product-price">
+                <div className="product-info-bottom" style={{ width: '100%', marginTop: 'auto' }}>
+                    <div className="product-price">
 
-                    <span>₹{product.price}</span>
+                        <span>₹{product.price}</span>
 
-                    {product.hasDiscount && (
+                        {product.hasDiscount && (
 
-                        <>
-                            <span style={{
-                                textDecoration: 'line-through',
-                                color: '#94969f',
-                                fontSize: '0.8rem',
-                                fontWeight: '400',
-                                marginLeft: '8px'
-                            }}>
-                                ₹{product.originalPrice}
-                            </span>
+                            <>
+                                <span style={{
+                                    textDecoration: 'line-through',
+                                    color: '#94969f',
+                                    fontSize: '0.8rem',
+                                    fontWeight: '400',
+                                    marginLeft: '8px'
+                                }}>
+                                    ₹{product.originalPrice}
+                                </span>
 
-                            <span style={{
-                                color: '#03a685',
-                                fontSize: '0.8rem',
-                                fontWeight: '700',
-                                marginLeft: '5px',
-                                whiteSpace: 'nowrap'
-                            }}>
-                                ({product.discountPercentage}% OFF)
-                            </span>
-                        </>
+                                <span style={{
+                                    color: '#03a685',
+                                    fontSize: '0.8rem',
+                                    fontWeight: '700',
+                                    marginLeft: '5px',
+                                    whiteSpace: 'nowrap'
+                                }}>
+                                    ({product.discountPercentage}% OFF)
+                                </span>
+                            </>
 
-                    )}
+                        )}
 
-                </div>
+                    </div>
 
-                <div style={{
-                    fontSize: '0.75rem',
-                    color: product.countInStock > 0 ? '#03a685' : '#ff3e6c',
-                    fontWeight: 'bold',
-                    marginTop: '4px'
-                }}>
+                    <div style={{
+                        fontSize: '0.75rem',
+                        color: product.countInStock > 0 ? '#03a685' : '#ff3e6c',
+                        fontWeight: 'bold',
+                        marginTop: '4px'
+                    }}>
 
-                    {product.countInStock > 0
-                        ? `In Stock (${product.countInStock})`
-                        : 'Out of Stock'}
+                        {product.countInStock > 0
+                            ? `In Stock (${product.countInStock})`
+                            : 'Out of Stock'}
 
+                    </div>
                 </div>
 
             </div>
