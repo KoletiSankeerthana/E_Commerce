@@ -594,7 +594,8 @@
 
     .product-price {
         font-size: 0.85rem !important;
-        height: 1.1rem !important;
+        height: auto !important;
+        min-height: 1.1rem !important;
     }
 
     .in-stock-label {
@@ -1210,7 +1211,7 @@
         grid-template-areas:
             "logo tools"
             "menu menu" !important;
-        grid-template-columns: minmax(130px, auto) 1fr !important;
+        grid-template-columns: max-content 1fr !important;
         align-items: center;
         gap: 0.3rem 0.5rem !important;
         padding: 0.45rem 0.75rem !important;
@@ -1243,11 +1244,13 @@
         align-items: center;
         justify-content: flex-end;
         gap: 0.4rem;
+        min-width: 0;
     }
 
     .nav-search-wrapper {
-        width: 9rem !important;
-        min-width: 7rem !important;
+        width: 100% !important;
+        max-width: 9rem !important;
+        min-width: 0 !important;
     }
 
     .nav-icons-group {
