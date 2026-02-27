@@ -186,6 +186,23 @@ const Home = () => {
         fetchLandingData();
     }, [isListingMode]);
 
+    const heroImages = [
+        "/images/hero-main.jpg",
+        "/images/hero-alt.jpg",
+        "/images/hero-new.jpg"
+    ];
+    // eslint-disable-next-line no-unused-vars
+    const [currentHero, setCurrentHero] = useState(0);
+
+    useEffect(() => {
+        if (!isListingMode) {
+            const interval = setInterval(() => {
+                setCurrentHero(prev => (prev + 1) % heroImages.length);
+            }, 5000);
+            return () => clearInterval(interval);
+        }
+    }, [isListingMode, heroImages.length]);
+
 
     const changePage = (newPage) => {
         if (newPage >= 1 && newPage <= totalPages) {
@@ -248,23 +265,6 @@ const Home = () => {
     }
 
     // --- Render Landing Mode ---
-    const heroImages = [
-        "/images/hero-main.jpg",
-        "/images/hero-alt.jpg",
-        "/images/hero-new.jpg"
-    ];
-    // eslint-disable-next-line no-unused-vars
-    const [currentHero, setCurrentHero] = useState(0);
-
-    useEffect(() => {
-        if (!isListingMode) {
-            const interval = setInterval(() => {
-                setCurrentHero(prev => (prev + 1) % heroImages.length);
-            }, 5000);
-            return () => clearInterval(interval);
-        }
-    }, [isListingMode]);
-
     return (
         <PageWrapper>
             <div className="home-background">
