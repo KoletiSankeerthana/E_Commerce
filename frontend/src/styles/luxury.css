@@ -1301,27 +1301,27 @@
 
     /* Row 1 Middle: Sort */
     .nav-sort-wrapper {
-        flex: 1 1 0% !important;
-        /* Take half remaining space securely */
+        flex: 0 0 auto !important;
+        /* Take exactly enough space for the text securely */
         min-width: 0 !important;
         margin: 0 !important;
-        width: 100% !important;
+        width: auto !important;
         max-width: none !important;
     }
 
     .custom-sort-dropdown {
-        width: 100% !important;
+        width: auto !important;
         height: 32px !important;
         min-height: 32px !important;
         /* Force exact height to match search */
         justify-content: space-between !important;
-        padding: 0 0.2rem !important;
-        /* Reduced padding to fit text */
+        padding: 0 0.4rem !important;
+        /* Restored padding since we have natural space now */
         min-width: 0 !important;
-        font-size: 0.65rem !important;
-        /* Restored readable font size now that space is truly split 50/50 */
-        gap: 0.1rem !important;
-        /* Reduced gap between text and arrow */
+        font-size: 0.7rem !important;
+        /* Restored exact original font size */
+        gap: 0.2rem !important;
+        /* Restored gap */
         box-sizing: border-box !important;
         border-radius: 4px !important;
         border: 1px solid #d4d5d9 !important;
