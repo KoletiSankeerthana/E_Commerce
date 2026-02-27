@@ -1209,11 +1209,12 @@
     .nav-content {
         display: grid !important;
         grid-template-areas:
-            "logo tools"
+            "logo icons"
+            "search sort"
             "menu menu" !important;
-        grid-template-columns: max-content 1fr !important;
+        grid-template-columns: 1fr 1fr !important;
         align-items: center;
-        gap: 0.3rem 0.5rem !important;
+        gap: 0.6rem 0.5rem !important;
         padding: 0.45rem 0.75rem !important;
     }
 
@@ -1231,30 +1232,42 @@
     }
 
     .logo-text {
-        font-size: 0.7rem !important;
+        font-size: 0.85rem !important;
         display: inline !important;
         letter-spacing: 0.02rem !important;
         white-space: nowrap !important;
     }
 
-    /* Row 1 right: search + sort + icons */
+    /* Flatten tools so search/sort/icons participate in the main grid */
     .nav-tools {
-        grid-area: tools;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 0.4rem;
-        min-width: 0;
+        display: contents !important;
     }
 
+    /* Row 1 right: icons */
+    .nav-icons-group {
+        grid-area: icons;
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.8rem !important;
+    }
+
+    .nav-icon {
+        font-size: 1.15rem !important;
+    }
+
+    /* Row 2: Search */
     .nav-search-wrapper {
-        flex: 1 !important;
-        min-width: 0 !important;
+        grid-area: search;
+        width: 100% !important;
         max-width: none !important;
     }
 
+    /* Row 2: Sort */
     .nav-sort-wrapper {
-        flex: 0 0 auto !important;
+        grid-area: sort;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     .custom-sort-dropdown {
@@ -1268,14 +1281,7 @@
         max-width: none !important;
     }
 
-    .nav-icons-group {
-        gap: 0.45rem !important;
-        flex-shrink: 0 !important;
-    }
 
-    .nav-icon {
-        font-size: 1rem !important;
-    }
 
     /* Row 2: scrollable nav links */
     .nav-center {
