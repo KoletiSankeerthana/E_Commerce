@@ -1226,12 +1226,12 @@
     }
 
     .lux-logo img {
-        height: 30px !important;
-        width: 30px !important;
+        height: 36px !important;
+        width: 36px !important;
     }
 
     .logo-text {
-        font-size: 0.9rem !important;
+        font-size: 1.05rem !important;
         display: inline !important;
         letter-spacing: 0.01rem !important;
         white-space: nowrap !important;
@@ -1276,6 +1276,8 @@
         /* Room for icon on right */
         font-size: 0.7rem !important;
         width: 100% !important;
+        height: 2.2rem !important;
+        /* Force exact height */
         min-width: 0 !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
@@ -1298,7 +1300,8 @@
 
     .custom-sort-dropdown {
         width: 100% !important;
-        height: 2rem !important;
+        height: 2.2rem !important;
+        /* Force exact height to match search */
         justify-content: space-between !important;
         padding: 0 0.4rem !important;
         min-width: 0 !important;
