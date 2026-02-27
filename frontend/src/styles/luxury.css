@@ -1275,8 +1275,8 @@
     }
 
     .nav-search-input {
-        padding: 0 1.4rem 0 0.4rem !important;
-        /* Room for icon on right */
+        padding: 0 1rem 0 0.2rem !important;
+        /* Reduced padding to stop placeholder truncation */
         font-size: 0.7rem !important;
         width: 100% !important;
         height: 32px !important;
@@ -1293,8 +1293,8 @@
     }
 
     .nav-search-icon {
-        right: 0.4rem !important;
-        /* Icon goes on the right */
+        right: 0.2rem !important;
+        /* Icon goes snugly on the right */
         left: auto !important;
         font-size: 0.8rem !important;
     }
