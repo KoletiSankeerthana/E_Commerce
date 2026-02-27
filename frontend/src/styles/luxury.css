@@ -1269,6 +1269,7 @@
         /* Take half remaining space securely */
         min-width: 0 !important;
         margin: 0 !important;
+        background: transparent !important;
     }
 
     .nav-search-input {
