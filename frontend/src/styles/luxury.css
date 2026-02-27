@@ -1237,7 +1237,7 @@
         white-space: nowrap !important;
     }
 
-    /* Row 1 right: search + icons */
+    /* Row 1 right: search + sort + icons */
     .nav-tools {
         grid-area: tools;
         display: flex;
@@ -1247,14 +1247,23 @@
         min-width: 0;
     }
 
-    .nav-search-wrapper {
-        width: 100% !important;
-        max-width: 9rem !important;
+    .nav-search-wrapper,
+    .nav-sort-wrapper {
+        flex: 1 !important;
         min-width: 0 !important;
+        max-width: 8rem !important;
+        /* Cap width on small phones */
+    }
+
+    .custom-sort-dropdown {
+        width: 100% !important;
+        justify-content: space-between !important;
+        padding: 0 0.3rem !important;
     }
 
     .nav-icons-group {
         gap: 0.45rem !important;
+        flex-shrink: 0 !important;
     }
 
     .nav-icon {

@@ -72,11 +72,12 @@ const ProductCard = ({ product }) => {
                                     ₹{product.originalPrice}
                                 </span>
 
-                                <span style={{
+                                <span className="discount-label" style={{
                                     color: '#03a685',
-                                    fontSize: '0.8rem',
+                                    fontSize: '0.75rem',
                                     fontWeight: '700',
-                                    marginLeft: '5px',
+                                    display: 'block',
+                                    marginTop: '2px',
                                     whiteSpace: 'nowrap'
                                 }}>
                                     ({product.discountPercentage}% OFF)
