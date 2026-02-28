@@ -298,7 +298,6 @@
     max-height: 100% !important;
     object-fit: contain !important;
     object-position: center !important;
-    mix-blend-mode: multiply !important;
     background: transparent !important;
     transition: transform 0.6s ease;
 }
@@ -519,7 +518,6 @@
     height: 100% !important;
     object-fit: contain !important;
     object-position: center !important;
-    mix-blend-mode: multiply !important;
     /* Eliminates white background */
     background: transparent !important;
     transition: transform 0.4s ease;
