@@ -11,11 +11,6 @@ const Payment = () => {
 
     // Dynamic fields
     const [upiId, setUpiId] = useState("");
-    const [cardDetails, setCardDetails] = useState({
-        number: "",
-        expiry: "",
-        cvv: ""
-    });
 
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     const address = location.state?.address;
@@ -34,20 +29,6 @@ const Payment = () => {
             const upiRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z]+$/;
             if (!upiRegex.test(upiId)) {
                 alert("Invalid UPI ID");
-                return false;
-            }
-        }
-        if (paymentMethod === "Card") {
-            if (!/^\d{16}$/.test(cardDetails.number)) {
-                alert("Card number must be 16 digits");
-                return false;
-            }
-            if (!/^\d{3}$/.test(cardDetails.cvv)) {
-                alert("CVV must be 3 digits");
-                return false;
-            }
-            if (!/^\d{2}\/\d{2}$/.test(cardDetails.expiry)) {
-                alert("Expiry must be MM/YY");
                 return false;
             }
         }
@@ -76,8 +57,7 @@ const Payment = () => {
                     couponCode,
                     paymentDetails: {
                         method: paymentMethod,
-                        upiId: paymentMethod === "UPI" ? upiId : undefined,
-                        cardLast4: paymentMethod === "Card" ? cardDetails.number.slice(-4) : undefined
+                        upiId: paymentMethod === "UPI" ? upiId : undefined
                     }
                 }
             );
@@ -131,51 +111,6 @@ const Payment = () => {
                                         className="responsive-input"
                                     />
                                     <p style={{ fontSize: '14px', color: '#94969f', marginTop: '10px' }}>A payment request will be sent to this UPI ID.</p>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Card Option */}
-                        <div className="payment-method-item">
-                            <label className="payment-method-label">
-                                <input
-                                    type="radio"
-                                    name="payment"
-                                    value="Card"
-                                    checked={paymentMethod === "Card"}
-                                    onChange={(e) => setPaymentMethod(e.target.value)}
-                                    className="payment-radio"
-                                />
-                                <span className="payment-method-text">Credit / Debit Card</span>
-                            </label>
-                            {paymentMethod === "Card" && (
-                                <div style={{ padding: '0 15px 10px 50px' }}>
-                                    <input
-                                        type="text"
-                                        placeholder="Card Number"
-                                        maxLength="16"
-                                        value={cardDetails.number}
-                                        onChange={(e) => setCardDetails({ ...cardDetails, number: e.target.value })}
-                                        className="responsive-input"
-                                        style={{ marginBottom: '15px' }}
-                                    />
-                                    <div style={{ display: 'flex', gap: '15px' }}>
-                                        <input
-                                            type="text"
-                                            placeholder="MM/YY"
-                                            value={cardDetails.expiry}
-                                            onChange={(e) => setCardDetails({ ...cardDetails, expiry: e.target.value })}
-                                            className="responsive-input"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="CVV"
-                                            maxLength="3"
-                                            value={cardDetails.cvv}
-                                            onChange={(e) => setCardDetails({ ...cardDetails, cvv: e.target.value })}
-                                            className="responsive-input"
-                                        />
-                                    </div>
                                 </div>
                             )}
                         </div>
@@ -256,7 +191,6 @@ const Payment = () => {
                                 <strong>Payment Method:</strong>
                                 <p style={{ margin: '5px 0 0 0', color: '#535766' }}>{paymentMethod}</p>
                                 {paymentMethod === 'UPI' && <p style={{ fontSize: '12px', color: '#888', marginTop: '2px' }}>{upiId}</p>}
-                                {paymentMethod === 'Card' && <p style={{ fontSize: '12px', color: '#888', marginTop: '2px' }}>Card ending in {cardDetails.number.slice(-4)}</p>}
                             </div>
                             <div style={{ display: 'flex', gap: '15px' }}>
                                 <button

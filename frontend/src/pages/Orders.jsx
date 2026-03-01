@@ -166,7 +166,7 @@ const Orders = () => {
 
                                                 <div style={{ display: 'flex', gap: '4px' }}>
                                                     <span style={{ color: '#94969f', fontWeight: '500' }}>Payment:</span>
-                                                    <span style={{ fontWeight: '600', color: '#282c3f' }}>{order.paymentMethod || 'UPI/Card'}</span>
+                                                    <span style={{ fontWeight: '600', color: '#282c3f' }}>{order.paymentMethod || 'UPI/COD'}</span>
                                                 </div>
 
                                                 <div style={{ display: 'flex', gap: '4px' }}>
