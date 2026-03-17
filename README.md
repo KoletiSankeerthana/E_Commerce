@@ -2,7 +2,7 @@
 # 🛍️ Production-Level MERN E-Commerce Platform
 
 🔗 **Live Application:**
-[https://e-commerce-twt9.vercel.app/(https://e-commerce-twt9.vercel.app/)
+(https://e-commerce-twt9.vercel.app/)
 
 🔗 **GitHub Repository:**
 [https://github.com/KoletiSankeerthana/E_Commerce](https://github.com/KoletiSankeerthana/E_Commerce)
