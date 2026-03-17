@@ -34,7 +34,6 @@ The project is structured using modular backend architecture and scalable fronte
 * 🔐 JWT Authentication & Protected Routes
 * 👑 Role-Based Admin Dashboard
 * 🛒 Dynamic Cart & Checkout System
-* 💳 Stripe / Razorpay Payment Integration
 * 📦 Order Management & Tracking
 * 🔎 Search, Filtering & Sorting
 * 🧪 Backend Validation & Middleware
